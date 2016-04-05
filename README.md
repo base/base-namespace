@@ -22,7 +22,7 @@ base.use(namespace());
 
 **Default**
 
-By default, `namespace` uses the `app._name` property, which is uses the constructor name (set in [base][]):
+By default, `namespace` uses the `app._name` property, which is uses the constructor name (set in [base](https://github.com/node-base/base)):
 
 ```js
 console.log(base.namespace);
