@@ -5,11 +5,10 @@
  */
 
 module.exports = function(options) {
-  var namespace;
-
   return function plugin(app) {
     if (!this.isApp) return;
     if (this.isRegistered('base-namespace')) return;
+    var namespace;
 
     Object.defineProperty(this, 'namespace', {
       configurable: true,
@@ -20,9 +19,8 @@ module.exports = function(options) {
       get: function() {
         if (namespace) return namespace;
         var alias = this.alias || this._name;
-        var parent = this.parent;
-        if (parent) {
-          return parent.namespace + '.' + alias;
+        if (this.parent) {
+          return this.parent.namespace + '.' + alias;
         }
         return alias;
       }
